@@ -1,11 +1,9 @@
-version: '3.9'
-
 services:
   redis:
     image: redis:7
     container_name: redis
     ports:
-      - "6380:6380"
+      - "6379:6379"
     volumes:
       - redis_data:/data
 
@@ -36,4 +34,4 @@ services:
       - backend
 
 volumes:
-  redis_data:
+  redis_data:
