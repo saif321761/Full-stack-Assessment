@@ -1,12 +1,10 @@
 from pydantic_settings import BaseSettings
 
-
 class Settings(BaseSettings):
-    POSTGRES_URL: str = "postgresql+asyncpg://postgres:Password3456@23.239.19.196:5432/fastapi_db"
-    REDIS_URL: str = "redis://localhost:6379/0"
+    POSTGRES_URL: str
+    REDIS_URL: str
 
     class Config:
         env_file = ".env"
-
 
 settings = Settings()
