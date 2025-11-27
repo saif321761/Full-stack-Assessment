@@ -1,4 +1,5 @@
-from sqlalchemy import Index
+from sqlalchemy import Column, Integer, String, Float, Index
+from app.database import Base
 
 class Product(Base):
     __tablename__ = "products"

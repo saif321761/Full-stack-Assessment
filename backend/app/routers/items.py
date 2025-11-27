@@ -49,3 +49,27 @@ async def get_products(
     await cache_set(key, response, expire=60)
 
     return response
+
+@router.get("/{product_id}", response_model=ProductOut)
+async def get_product_by_id(
+    product_id: int,
+    session: AsyncSession = Depends(get_session)
+):
+    key = f"product:{product_id}"
+    cached = await cache_get(key)
+
+    if cached:
+        return cached
+
+    result = await session.execute(
+        select(Product).where(Product.id == product_id)
+    )
+    product = result.scalar_one_or_none()
+
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    response = ProductOut.model_validate(product)
+    await cache_set(key, response, expire=120)
+
+    return response
