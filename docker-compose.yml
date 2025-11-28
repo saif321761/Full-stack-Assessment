@@ -7,19 +7,6 @@ services:
     volumes:
       - redis_data:/data
 
-  postgres:
-    image: postgres:15
-    container_name: postgres_db
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Password3456
-      POSTGRES_DB: fastapi_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   backend:
     build:
       context: ./backend
@@ -31,17 +18,8 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-
-      # PostgreSQL connection
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=Password3456
-      - DB_NAME=fastapi_db
-
     depends_on:
       - redis
-      - postgres
 
   frontend:
     build:
@@ -57,4 +35,3 @@ services:
 
 volumes:
   redis_data:
-  postgres_data:
