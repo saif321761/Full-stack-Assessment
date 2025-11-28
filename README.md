@@ -128,8 +128,7 @@ Docker Architecture
 Each service runs in its own container:
 
 ```
-Frontend → Backend → Database
-                → Redis
+Frontend → Backend → Database → Redis
 ```
 
 Shared Docker network allows:
