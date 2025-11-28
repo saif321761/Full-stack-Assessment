@@ -12,7 +12,7 @@ import useDebounce from "../utils/useDebounce";
 import { fetchItems, Product } from "../../services/api";
 import { Card, CardContent } from "@/components/ui/card";
 
-const PAGE_LIMIT = 100;
+const PAGE_LIMIT = 50;
 const ROW_HEIGHT = 56;
 
 const DataTable: React.FC = () => {

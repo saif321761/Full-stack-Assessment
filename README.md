@@ -151,18 +151,3 @@ To ensure usability even with 100,000+ records:
 - Instant feedback on filter input
 - Mobile responsiveness
 
-🔮 What I Would Improve With More Time
-
-With additional development time, I would implement:
-
-- Background worker queues (Celery / RQ)
-- Cursor-based pagination for infinite scrolling
-- WebSocket-based real-time updates
-- Server-side aggregation endpoints
-- Dashboard metrics for performance monitoring
-- Fine-grained cache invalidation strategy
-- Distributed caching and query optimization monitoring
-- Load testing (Locust / k6)
-- API request throttling, audit logging, and RBAC
-
-These improvements would make the system production-grade at enterprise scale.

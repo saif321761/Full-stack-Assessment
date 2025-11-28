@@ -14,7 +14,7 @@ async def get_products(
     sort: str = Query("id", description="Column to sort by"),
     order: str = Query("asc", regex="^(asc|desc)$", description="Sort order"),
     page: int = Query(1, ge=1, description="Page number"),
-    limit: int = Query(50, ge=1, le=100, description="Number of items per page"),
+    limit: int = Query(50, ge=1, le=50, description="Number of items per page"),
     session: AsyncSession = Depends(get_session)
 ):
     """
